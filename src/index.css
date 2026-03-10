@@ -1,0 +1,552 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --bg: #131313;
+  --fg: #E3E3E3;
+  --secondary: #a0a0a0;
+  --accent: #4FD16A;
+  --border: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+.searchForm {
+  width: 100vw;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 10px;
+}
+
+.searchInput {
+  font-size: 16px;
+
+  background-color: transparent;
+  border: 1px solid var(--border);
+
+  color: var(--fg);
+  padding: 3px 10px;
+
+  border-radius: 4px;
+
+  width: 400px;
+  height: 35px;
+
+  outline: none;
+}
+
+.searchResultContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 50px;
+
+  flex-wrap: wrap;
+}
+
+.resultBook {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #181818;
+
+  border: 1px solid var(--border);
+  width: 600px;
+
+  margin: 10px;
+  padding: 10px;
+
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.resultBook img {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.resultBook section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  font-weight: 500;
+}
+
+.resultBookLabel {
+  color: #888888;
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
+
+.resultBook:hover {
+  background-color: #232323;
+}
+
+/* BookDetail Page CSS */
+.bookDetailContainer {
+  max-width: 900px;
+  margin: 80px auto;
+  padding: 0 40px;
+}
+
+.bookHeader {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.bookPoster img {
+  width: 220px;
+  border-radius: 4px;
+  filter: grayscale(20%);
+  transition: filter 0.3s ease;
+}
+
+.bookPoster img:hover {
+  filter: grayscale(0%);
+}
+
+.bookTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.bookAuthor {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  margin-bottom: 24px;
+}
+
+
+.addBtn {
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  font-weight: 600;
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  width: 220px;
+  margin-top: 10px;
+
+  height: 40px;
+  line-height: 40px;
+}
+
+.statusTag {
+  display: inline-block;
+  text-align: center;
+
+  border: 1px solid var(--secondary);
+  color: var(--secondary);
+
+  width: 220px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 2px;
+  margin-top: 10px;
+}
+
+/* Description Section */
+.bookDescription {
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+  line-height: 1.8;
+  color: #d1d1d1;
+}
+
+.bookDescription h3 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--secondary);
+  margin-bottom: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bookHeader {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+}
+
+/* BookDetailInfo CSS */
+
+.bookDetailInfo {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bookDetailInfo .value {
+  font-weight: 600;
+}
+
+.bookLabel {
+  color: var(--secondary);
+  font-size: 15px;
+
+  font-weight: 500;
+}
+
+.categoriesContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 30px 0px;
+}
+
+.category {
+  background-color: #1e1e1e;
+  color: #a0a0a0;
+
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.category:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Login and Register Form CSS */
+
+.loginForm,
+.registerForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  height: 50vh;
+  gap: 10px;
+}
+
+.loginForm input,
+.registerForm input {
+  width: 300px;
+  font-size: 16px;
+  padding: 7px 7px;
+
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  border-radius: 4px;
+}
+
+.loginForm button,
+.registerForm button {
+  background-color: var(--accent);
+  border: none;
+  color: var(--bg);
+  font-size: 16px;
+
+  padding: 7px 12px;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+
+}
+
+.loginForm button:hover,
+.registerForm button:hover {
+  background-color: var(--secondary);
+}
+
+/* Library CSS */
+.libraryContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 20px;
+
+}
+
+.libraryBooks {
+  display: flex;
+  margin-top: 50px;
+  flex-wrap: wrap;
+
+  justify-content: center;
+}
+
+.libraryBook {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 600px;
+
+  background-color: #181818;
+
+  border-radius: 6px;
+
+  margin: 10px;
+  padding: 10px;
+
+  border: 1px solid var(--border);
+
+}
+
+.libraryBook img {
+  width: 140px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 6px;
+
+  margin: 30px 20px;
+}
+
+.libraryBookInfo {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  margin: 20px;
+  font-weight: 500;
+}
+
+.libraryBookLabel {
+  color: #888888;
+  font-size: 0.9rem;
+  margin-right: 4px;
+}
+
+.libraryBookAction {
+  gap: 10px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.libraryBookBtn {
+  padding: 5px 10px;
+  background-color: var(--accent);
+  color: var(--bg);
+  border: none;
+  font-weight: 500;
+
+  border-radius: 4px;
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.libraryBookBtn:hover {
+  background-color: var(--secondary);
+}
+
+.statusInput select {
+  background-color: transparent;
+  color: var(--fg);
+  border: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.statusInput select option {
+  background-color: var(--bg);
+  color: var(--fg);
+
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.dateInput input {
+  background-color: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.libraryBookTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.libraryBookAuthors {
+  font-weight: 400;
+  font-size: 16px;
+
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+
+/* Navbar CSS */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: #191919;
+  min-width: 100vw;
+  padding: 10px;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+
+  gap: 50px;
+}
+
+.logo {
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.navLink {
+  background-color: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  font-size: 16px;
+
+  border-radius: 4px;
+}
+
+.navLink:hover {
+  background-color: var(--secondary);
+}
+
+.linkTag {
+  /* text-decoration: none; */
+  color: #4fa1d1;
+}
+
+.accountMessage {
+
+  background-color: #4fa1d125;
+
+  border: 1px dashed #4fa1d1;
+
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin: 10px 0px;
+}
+
+.message {
+  background-color: #4fa1d115;
+
+  border: 1px dashed #4fa1d1;
+  color: #4fa1d1;
+  padding: 5px 20px;
+  border-radius: 4px;
+  margin: 10px 0px;
+}
+
+.loadingBook {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.loadingBook .message {
+  flex-grow: 1;
+  margin-top: 50px;
+}
+
+.searching {
+  margin-top: 50px;
+}
+
+.ratingReview {
+  background-color: rgba(79, 209, 106, 0.12);
+  border: 1px dashed #4FD16A;
+  color: #4FD16A;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+.ratingReview .myRating,
+.ratingReview .myReview {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+
+/* Stats CSS */
+
+.stats {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+
+  margin-top: 20px;
+
+}
+
+.booksNumbers {
+  display: flex;
+  flex-direction: column;
+
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px dashed rgba(0, 255, 0);
+
+  padding: 20px;
+  border-radius: 4px;
+
+  font-weight: 500;
+  color: var(--fg);
+
+  margin-top: 50px;
+}
+
+.averageRating {
+  margin-top: 30px;
+}
+
+.averageRating span {
+  color: var(--secondary);
+}
