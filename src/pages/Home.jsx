@@ -33,8 +33,6 @@ export default function Home() {
             console.error(err)
             setStatus("Error fetching results")
         }
-
-        console.log(data)
     }
     async function handleSubmit(e) {
         e.preventDefault()
