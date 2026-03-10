@@ -55,7 +55,7 @@ export default function BookDetail() {
             }
         }
         init()
-    }, [bookId, fetchLibrary])
+    }, [bookId])
 
 
     if (!book) return <div className="loadingBook"><Navbar /> <span className="message">Loading...</span></div>;
