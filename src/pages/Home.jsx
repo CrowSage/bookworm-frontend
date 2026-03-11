@@ -64,7 +64,7 @@ export default function Home() {
                 {searchResult && searchResult.map((book) => (
 
                     <div className="resultBook" key={book.id} onClick={() => navigate(`/book/${book.id}`)}>
-                        <img src={book.volumeInfo.imageLinks?.thumbnail || "/no-cover.jpg"} alt="" />
+                        <img src={book.volumeInfo.imageLinks?.thumbnail.replace("http://", "https://") || "/no-cover.jpg"} alt="" />
                         <section>
                             <span style={{ fontWeight: "bold", fontSize: "18px", marginBottom: "10px" }}>{book.volumeInfo.title}</span>
                             {book.volumeInfo.authors && (

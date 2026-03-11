@@ -46,7 +46,7 @@ export default function Library() {
                     {library.map((book) => (
                         <div className="libraryBook" key={book.id}>
                             <div className="libraryBookPoster">
-                                <img src={book.thumbnail || "/no-cover.jpg"} alt="book cover" />
+                                <img src={book.thumbnail.replace("http://", "https://") || "/no-cover.jpg"} alt="book cover" />
                             </div>
 
                             {/* 2. Fixed JSX Conditional Logic */}

@@ -26,7 +26,14 @@ export function useLibrary() {
         if (response.status === 401) {
             const refreshed = await refreshAccessToken()
             if (refreshed) {
-                return fetchLibrary()
+                const newToken = localStorage.getItem("token")
+                const retry = await fetch(`${BASE_URL}/api/library/`, {
+                    method: "GET",
+                    headers: { 'Authorization': `Bearer ${newToken}` }
+                })
+                const data = await retry.json()
+                setLibrary(data)
+                return data
             } else {
                 logout()
             }
@@ -48,10 +55,23 @@ export function useLibrary() {
             body: JSON.stringify(bookData)
         })
 
+
+
         if (response.status === 401) {
             const refreshed = await refreshAccessToken()
+
             if (refreshed) {
-                return addBook(bookData)
+                const newToken = localStorage.getItem("token")
+                const retry = await fetch(`${BASE_URL}/api/library/add`, {
+                    method: "POST",
+                    headers: { 'Authorization': `Bearer ${newToken}` },
+                    body: JSON.stringify(bookData)
+                })
+
+                const data = await retry.json()
+                return retry.ok
+
+
             } else {
                 logout()
             }
@@ -79,7 +99,18 @@ export function useLibrary() {
         if (response.status === 401) {
             const refreshed = await refreshAccessToken()
             if (refreshed) {
-                return updateBook(bookId, bookData)
+                const newToken = localStorage.getItem("token")
+                const retry = await fetch(`${BASE_URL}/api/library/${bookId}/update/`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${newToken}`
+                    },
+                    body: JSON.stringify(bookData)
+                })
+
+                return retry.ok
+
             } else {
                 logout()
             }
@@ -101,7 +132,16 @@ export function useLibrary() {
         if (response.status === 401) {
             const refreshed = await refreshAccessToken()
             if (refreshed) {
-                return deleteBook(bookId)
+                const newToken = localStorage.getItem("token")
+                const retry = await fetch(`${BASE_URL}/api/library/${bookId}/delete/`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${newToken}`
+                    },
+                })
+
+                return retry.ok
             } else {
                 logout()
             }

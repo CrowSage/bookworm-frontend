@@ -70,7 +70,7 @@ export default function BookDetail() {
 
                     <div className="bookPoster">
 
-                        <img src={book.volumeInfo.imageLinks?.thumbnail || "/no-cover.jpg"} alt="" />
+                        <img src={book.volumeInfo.imageLinks?.thumbnail.replace("http://", "https://") || "/no-cover.jpg"} alt="" />
                         <div className="bookAction">
 
                             {!isInLibrary && <button onClick={() => {

@@ -27,10 +27,8 @@ export default function Stats() {
         : "No ratings yet"
 
     useEffect(() => {
-
         fetchLibrary()
     }, [])
-
     return (
         <>
             <Navbar />
